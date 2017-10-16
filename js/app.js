@@ -14,14 +14,15 @@ var app = {
 
 	getPosts: function() {
 		console.log('app.getPosts');
-		var rootURL = 'http://www.wp4.dev/wp-json';
+		var rootURL = 'http://localhost/wordpress/wp-json/wp/v2';
 
 		$.ajax({
 			type: 'GET',
-			url: rootURL + '/posts?type=news',
+			url: rootURL + '/viaje',
 			dataType: 'json',
 			success: function(data){
 				$.each(data, function(index, value) {
+					alert(JSON.stringify(value));
 			      $('ul.topcoat-list').append('<li class="topcoat-list__item">' +
 			      	'<a class="view-link" href="#'+value.ID+'">' +
 			      	'<img src="'+value.featured_image.attachment_meta.sizes.medium.url+'" /></a><br>' +
